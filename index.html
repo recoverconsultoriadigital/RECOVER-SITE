@@ -6,6 +6,11 @@
   <title>Recover | Consultoria Financeira e Controladoria Estratégica</title>
   <meta name="description" content="Organização financeira, BPO e controladoria para empresas que querem crescer com segurança." />
 
+  <!-- ✅ Fontes premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg:#0b1220;
@@ -19,19 +24,23 @@
       --radius: 18px;
       --max: 1120px;
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background: radial-gradient(1200px 700px at 20% -10%, rgba(46,125,246,.35), transparent 60%),
                   radial-gradient(900px 600px at 90% 10%, rgba(22,197,181,.18), transparent 55%),
                   var(--bg);
       color:var(--text);
-      line-height:1.5;
+      line-height:1.55;
     }
+
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:22px}
 
+    /* ===== NAV ===== */
     .nav{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
@@ -42,28 +51,36 @@
 
     .brandmark{display:flex; align-items:center; gap:10px; min-width: 220px;}
     .brandmark img{
-      width:38px; height:38px; border-radius:12px;
+      width:40px; height:40px; border-radius:12px;
       object-fit:contain;
       background: rgba(255,255,255,.03);
       border:1px solid var(--line);
       padding:6px;
     }
-    .brandmark .name{font-weight:900; letter-spacing:.4px}
+    .brandmark .name{
+      font-weight:900;
+      letter-spacing:.4px;
+      font-family:'Poppins', sans-serif;
+    }
+
     .badge{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px; border:1px solid var(--line);
       border-radius:999px; color:var(--muted); font-size:13px;
+      background: rgba(255,255,255,.02);
     }
     .dot{width:9px; height:9px; border-radius:999px; background: linear-gradient(135deg,var(--brand),var(--brand2))}
     .menu{display:flex; gap:16px; align-items:center; flex-wrap:wrap}
     .menu a{color:var(--muted); font-weight:600; font-size:14px}
     .menu a:hover{color:var(--text)}
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding:12px 16px; border-radius:12px; border:1px solid var(--line);
       background: rgba(255,255,255,.03);
-      font-weight:800;
-      transition: transform .15s ease, background .15s ease;
+      font-family:'Poppins', sans-serif;
+      font-weight:600;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
       cursor:pointer;
     }
     .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06)}
@@ -71,51 +88,103 @@
       border:0;
       background: linear-gradient(135deg, var(--brand), var(--brand2));
       color:#06101f;
-      box-shadow: 0 12px 30px rgba(46,125,246,.2);
+      box-shadow: 0 12px 30px rgba(46,125,246,.20);
     }
+    .btn.primary:hover{box-shadow: 0 16px 40px rgba(46,125,246,.28)}
 
+    /* ===== HERO ===== */
     .hero{padding:56px 0 18px}
     .grid{display:grid; gap:18px}
     .hero-grid{grid-template-columns: 1.2fr .8fr}
     @media (max-width: 900px){ .hero-grid{grid-template-columns:1fr} }
 
-    h1{margin:10px 0 10px; font-size:44px; line-height:1.05}
-    @media (max-width: 520px){ h1{font-size:34px} }
+    h1,h2,h3{
+      font-family:'Poppins', sans-serif;
+      letter-spacing:-0.6px;
+    }
+
+    h1{
+      margin:10px 0 10px;
+      font-size:46px;
+      line-height:1.05;
+      font-weight:800;
+    }
+    @media (max-width: 520px){ h1{font-size:34px; line-height:1.15} }
+
+    .subtitle-accent{
+      display:inline-block;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:13px;
+      font-weight:600;
+    }
+
     .sub{color:var(--muted); font-size:16px; max-width:62ch}
 
-    .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 22px}
+    .hero-title-line{
+      position:relative;
+      display:inline-block;
+    }
+    .hero-title-line::after{
+      content:"";
+      position:absolute;
+      left:0; bottom:-10px;
+      width:160px; height:4px;
+      border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      opacity:.9;
+    }
+
+    .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin:22px 0 22px}
     .pill{
       padding:10px 12px;
       border:1px solid var(--line);
       border-radius:999px;
       color:var(--muted);
       background: rgba(255,255,255,.02);
-      font-weight:700; font-size:13px;
+      font-weight:600; font-size:13px;
     }
 
+    /* ===== CARDS ===== */
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding:18px;
     }
 
-    .kpis{display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top:14px}
+    .kpis{display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top:16px}
     @media (max-width: 520px){ .kpis{grid-template-columns:1fr} }
-    .kpi{padding:14px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.02)}
-    .kpi b{font-size:18px}
+    .kpi{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+    }
+    .kpi b{
+      font-size:18px;
+      font-family:'Poppins', sans-serif;
+      font-weight:700;
+    }
     .kpi span{display:block; color:var(--muted); font-size:13px; margin-top:4px}
 
-    .section{padding:24px 0}
-    .section h2{margin:0 0 10px; font-size:26px}
+    .section{padding:26px 0}
+    .section h2{
+      margin:0 0 10px;
+      font-size:28px;
+      font-weight:800;
+    }
     .section p{color:var(--muted); margin:0 0 16px}
 
     .cols-3{grid-template-columns: repeat(3,1fr)}
     @media (max-width: 900px){ .cols-3{grid-template-columns:1fr} }
 
     .icon{
-      width:44px; height:44px; border-radius:14px;
+      width:46px; height:46px; border-radius:14px;
       display:grid; place-items:center;
       background: rgba(46,125,246,.12);
       border:1px solid rgba(46,125,246,.25);
@@ -125,7 +194,7 @@
 
     .small{font-size:13px; color:var(--muted)}
     .price{display:flex; align-items:baseline; gap:8px; margin:10px 0 6px}
-    .price b{font-size:28px}
+    .price b{font-size:30px; font-family:'Poppins',sans-serif}
     .ul{margin:12px 0 0; padding-left:18px; color:var(--muted)}
     .ul li{margin:6px 0}
 
@@ -140,22 +209,20 @@
     .right{margin-left:auto}
     .hr{height:1px; background:var(--line); margin:14px 0}
 
-    /* About layout */
+    /* ===== ABOUT ===== */
     .about-grid{grid-template-columns: .9fr 1.1fr}
     @media (max-width: 900px){ .about-grid{grid-template-columns:1fr} }
-    .me{
-      display:flex; gap:14px; align-items:center; flex-wrap:wrap;
-    }
+    .me{display:flex; gap:14px; align-items:center; flex-wrap:wrap;}
     .me img{
-      width:104px; height:104px; border-radius:18px;
+      width:110px; height:110px; border-radius:18px;
       object-fit:cover;
       border:1px solid var(--line);
       background: rgba(255,255,255,.03);
     }
-    .me b{font-size:18px}
+    .me b{font-size:20px}
     .me .small{max-width:60ch}
 
-    /* WhatsApp floating */
+    /* ===== WhatsApp floating ===== */
     .wpp{
       position:fixed; right:18px; bottom:18px; z-index:999;
       border:0; border-radius:999px;
@@ -168,6 +235,35 @@
     }
     .wpp:hover{filter:brightness(1.05)}
     .wpp svg{width:20px; height:20px}
+
+    /* ✅ AJUSTES PARA CELULAR (evita “embolado”) */
+    @media (max-width: 768px) {
+      .nav-inner{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .badge{display:none;} /* no celular fica mais clean */
+      .menu{
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+      .menu a{font-size: 13px;}
+
+      .menu .btn{
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero{padding:30px 0 10px}
+      .hero-title-line::after{width:120px}
+
+      .pill-row{gap:6px}
+      .kpis{grid-template-columns:1fr}
+      .btn.primary, .btn{width:100%}
+    }
   </style>
 </head>
 
@@ -196,9 +292,9 @@
     <!-- HERO -->
     <section class="hero grid hero-grid" id="inicio">
       <div>
-        <div class="badge"><span class="dot"></span> Organize. Controle. Cresça com segurança.</div>
+        <div class="subtitle-accent"><span class="dot" style="display:inline-block;margin-right:8px;"></span>Organize. Controle. Cresça com segurança.</div>
 
-        <h1>Finanças no eixo, sem planilha bagunçada e sem susto no caixa.</h1>
+        <h1 class="hero-title-line">Finanças no eixo, sem planilha bagunçada e sem susto no caixa.</h1>
 
         <p class="sub">
           A Recover organiza o financeiro da sua empresa, cria rotina de controle e transforma números em decisão.
@@ -274,7 +370,7 @@
           <div class="me">
             <img src="minha-foto.jpg" alt="Foto da consultora Recover" />
             <div>
-              <b>Consultora Recover</b>
+              <b>Andressa Marques</b>
               <div class="small">
                 Formada em <b>Contabilidade</b> pela <b>Universidade Federal Fluminense (UFF)</b>, com
                 <b>mais de 5 anos</b> de experiência na área.
@@ -475,10 +571,12 @@
 
   <script>
     const WHATSAPP_NUMBER = "5522998138681";
+
     function wppLink(msg){
       const text = encodeURIComponent(msg);
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
     }
+
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const btnWppFloat = document.getElementById("btnWppFloat");
