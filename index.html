@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Recover | Consultoria Financeira e Controladoria Estratégica</title>
+  <meta name="description" content="Organização financeira, BPO e controladoria para empresas que querem crescer com segurança." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a33;
+      --muted:#9bb0d1;
+      --text:#e9f0ff;
+      --brand:#2e7df6;
+      --brand2:#16c5b5;
+      --line: rgba(255,255,255,.08);
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(46,125,246,.35), transparent 60%),
+                  radial-gradient(900px 600px at 90% 10%, rgba(22,197,181,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
+
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.6);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:14px}
+
+    .brandmark{display:flex; align-items:center; gap:10px; min-width: 220px;}
+    .brandmark img{
+      width:38px; height:38px; border-radius:12px;
+      object-fit:contain;
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      padding:6px;
+    }
+    .brandmark .name{font-weight:900; letter-spacing:.4px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border:1px solid var(--line);
+      border-radius:999px; color:var(--muted); font-size:13px;
+    }
+    .dot{width:9px; height:9px; border-radius:999px; background: linear-gradient(135deg,var(--brand),var(--brand2))}
+    .menu{display:flex; gap:16px; align-items:center; flex-wrap:wrap}
+    .menu a{color:var(--muted); font-weight:600; font-size:14px}
+    .menu a:hover{color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius:12px; border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      font-weight:800;
+      transition: transform .15s ease, background .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06)}
+    .btn.primary{
+      border:0;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color:#06101f;
+      box-shadow: 0 12px 30px rgba(46,125,246,.2);
+    }
+
+    .hero{padding:56px 0 18px}
+    .grid{display:grid; gap:18px}
+    .hero-grid{grid-template-columns: 1.2fr .8fr}
+    @media (max-width: 900px){ .hero-grid{grid-template-columns:1fr} }
+
+    h1{margin:10px 0 10px; font-size:44px; line-height:1.05}
+    @media (max-width: 520px){ h1{font-size:34px} }
+    .sub{color:var(--muted); font-size:16px; max-width:62ch}
+
+    .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 22px}
+    .pill{
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      background: rgba(255,255,255,.02);
+      font-weight:700; font-size:13px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+
+    .kpis{display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top:14px}
+    @media (max-width: 520px){ .kpis{grid-template-columns:1fr} }
+    .kpi{padding:14px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.02)}
+    .kpi b{font-size:18px}
+    .kpi span{display:block; color:var(--muted); font-size:13px; margin-top:4px}
+
+    .section{padding:24px 0}
+    .section h2{margin:0 0 10px; font-size:26px}
+    .section p{color:var(--muted); margin:0 0 16px}
+
+    .cols-3{grid-template-columns: repeat(3,1fr)}
+    @media (max-width: 900px){ .cols-3{grid-template-columns:1fr} }
+
+    .icon{
+      width:44px; height:44px; border-radius:14px;
+      display:grid; place-items:center;
+      background: rgba(46,125,246,.12);
+      border:1px solid rgba(46,125,246,.25);
+      margin-bottom:10px;
+    }
+    .icon svg{width:22px; height:22px}
+
+    .small{font-size:13px; color:var(--muted)}
+    .price{display:flex; align-items:baseline; gap:8px; margin:10px 0 6px}
+    .price b{font-size:28px}
+    .ul{margin:12px 0 0; padding-left:18px; color:var(--muted)}
+    .ul li{margin:6px 0}
+
+    .footer{
+      padding:34px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .right{margin-left:auto}
+    .hr{height:1px; background:var(--line); margin:14px 0}
+
+    /* About layout */
+    .about-grid{grid-template-columns: .9fr 1.1fr}
+    @media (max-width: 900px){ .about-grid{grid-template-columns:1fr} }
+    .me{
+      display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+    }
+    .me img{
+      width:104px; height:104px; border-radius:18px;
+      object-fit:cover;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .me b{font-size:18px}
+    .me .small{max-width:60ch}
+
+    /* WhatsApp floating */
+    .wpp{
+      position:fixed; right:18px; bottom:18px; z-index:999;
+      border:0; border-radius:999px;
+      padding:14px 16px;
+      background: #25D366;
+      color:#06210f;
+      font-weight:900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.35);
+      display:flex; align-items:center; gap:10px;
+    }
+    .wpp:hover{filter:brightness(1.05)}
+    .wpp svg{width:20px; height:20px}
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brandmark">
+        <img src="logo-recover.png" alt="Logo Recover" />
+        <span class="name">RECOVER</span>
+        <span class="badge"><span class="dot"></span> Consultoria & Controladoria</span>
+      </div>
+
+      <nav class="menu">
+        <a href="#inicio">Início</a>
+        <a href="#quem-sou">Quem sou</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#metodo">Método</a>
+        <a href="#planos">Planos</a>
+        <a href="https://www.instagram.com/recover_consultoriadig/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn primary" href="#contato">Falar agora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero grid hero-grid" id="inicio">
+      <div>
+        <div class="badge"><span class="dot"></span> Organize. Controle. Cresça com segurança.</div>
+
+        <h1>Finanças no eixo, sem planilha bagunçada e sem susto no caixa.</h1>
+
+        <p class="sub">
+          A Recover organiza o financeiro da sua empresa, cria rotina de controle e transforma números em decisão.
+          Da organização inicial até a controladoria mensal com indicadores.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">BPO Financeiro</span>
+          <span class="pill">Controladoria</span>
+          <span class="pill">DRE & Indicadores</span>
+          <span class="pill">Separação PF x PJ</span>
+          <span class="pill">Fluxo de Caixa</span>
+        </div>
+
+        <div class="row">
+          <a class="btn primary" href="#contato">Quero organizar agora</a>
+          <a class="btn" href="#planos">Ver planos</a>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi">
+            <b>Credibilidade</b>
+            <span>Processo, rotina e entrega padronizada</span>
+          </div>
+          <div class="kpi">
+            <b>Clareza no caixa</b>
+            <span>Você entende para onde o dinheiro vai</span>
+          </div>
+          <div class="kpi">
+            <b>Decisão com dados</b>
+            <span>Indicadores para guiar crescimento</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0 0 8px;">Diagnóstico rápido (gratuito)</h2>
+        <p style="margin:0 0 10px; color:var(--muted);">
+          Responda 5 informações e eu te digo o primeiro passo para organizar o financeiro.
+        </p>
+
+        <div class="hr"></div>
+
+        <form id="leadForm" class="grid" style="gap:12px;">
+          <input required name="nome" placeholder="Seu nome"
+                 style="padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);outline:none;">
+          <input required name="empresa" placeholder="Empresa"
+                 style="padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);outline:none;">
+          <input required name="whats" placeholder="WhatsApp (DDD + número)"
+                 style="padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);outline:none;">
+          <select name="dor"
+                  style="padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);outline:none;">
+            <option value="Caixa confuso">Caixa confuso</option>
+            <option value="Mistura PF e PJ">Mistura PF e PJ</option>
+            <option value="Vende e não vê dinheiro">Vende e não vê dinheiro</option>
+            <option value="Dívidas/parcelamentos">Dívidas/parcelamentos</option>
+            <option value="Sem indicadores">Sem indicadores</option>
+          </select>
+
+          <button class="btn primary" type="submit">Enviar e falar no WhatsApp</button>
+          <div class="small">Ao enviar, você será direcionado(a) ao WhatsApp com a mensagem pronta.</div>
+        </form>
+      </div>
+    </section>
+
+    <!-- QUEM SOU EU -->
+    <section class="section" id="quem-sou">
+      <h2>Quem sou eu</h2>
+      <p>Uma consultoria feita por quem vive números na prática e trabalha com rotina de gestão.</p>
+
+      <div class="grid about-grid">
+        <div class="card">
+          <div class="me">
+            <img src="minha-foto.jpg" alt="Foto da consultora Recover" />
+            <div>
+              <b>Consultora Recover</b>
+              <div class="small">
+                Formada em <b>Contabilidade</b> pela <b>Universidade Federal Fluminense (UFF)</b>, com
+                <b>mais de 5 anos</b> de experiência na área.
+              </div>
+            </div>
+          </div>
+
+          <div class="hr"></div>
+
+          <div class="small">
+            Atuo com clientes de <b>diferentes nichos</b>, sempre com foco em:
+            organização financeira, rotina de controle, indicadores e decisões mais seguras.
+          </div>
+        </div>
+
+        <div class="card">
+          <b>Por que a Recover passa credibilidade?</b>
+          <ul class="ul">
+            <li><b>Processo claro</b>: o que será feito, em qual etapa e com qual entrega.</li>
+            <li><b>Rotina mensal</b>: controle que funciona no dia a dia, não só “no papel”.</li>
+            <li><b>Decisão com números</b>: relatórios, DRE, metas e acompanhamento.</li>
+            <li><b>Organização real</b>: separação PF x PJ, conciliação e categorias bem feitas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="section" id="servicos">
+      <h2>O que a Recover faz</h2>
+      <p>Organização prática + acompanhamento para você ter controle e crescer com segurança.</p>
+
+      <div class="grid cols-3">
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h16M4 12h16M4 17h10" stroke-width="2"/></svg>
+          </div>
+          <b>BPO Financeiro</b>
+          <p class="small">Rotina de contas a pagar/receber, conciliação, categorização e relatórios.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19V5m0 14h16M8 15l3-3 3 2 5-7" stroke-width="2"/></svg>
+          </div>
+          <b>Controladoria Estratégica</b>
+          <p class="small">DRE, indicadores, metas e reuniões de acompanhamento com plano de ação.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v18M5 10h14M7 14h10" stroke-width="2"/></svg>
+          </div>
+          <b>Reestruturação e Dívidas</b>
+          <p class="small">Levantamento, organização, estratégia de negociação e parcelamentos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÉTODO -->
+    <section class="section" id="metodo">
+      <h2>Método Recover (em fases)</h2>
+      <p>
+        As fases existem para dar <b>prioridade, sequência e consistência</b>.
+        A empresa não sai do “caos” para a controladoria de uma vez: primeiro a gente estabiliza o caixa,
+        depois organiza a rotina e, por fim, constrói visão de resultado e indicadores para crescer com segurança.
+      </p>
+
+      <div class="grid cols-3">
+        <div class="card">
+          <b>Fase 1 — Controle de danos</b>
+          <p class="small" style="margin-top:8px;">
+            O objetivo é <b>parar o sangramento</b> e trazer clareza do básico: o que entra, o que sai, o que está em atraso
+            e o que precisa ser decidido primeiro.
+          </p>
+          <ul class="ul">
+            <li>Diagnóstico e prioridades (o que resolve primeiro)</li>
+            <li>Separação PF x PJ e organização de contas</li>
+            <li>Rotina mínima (pagar, receber, conciliar)</li>
+            <li>Fluxo de caixa simples e funcional</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <b>Fase 2 — Reconstrução</b>
+          <p class="small" style="margin-top:8px;">
+            Aqui a gente cria <b>processo</b>: categoria certa, conciliação, padrão de lançamentos e relatórios
+            para você enxergar a operação com segurança.
+          </p>
+          <ul class="ul">
+            <li>Conciliação e padronização das categorias</li>
+            <li>Relatórios de caixa, contas e compromissos</li>
+            <li>Organização de dívidas/parcelas e estratégia</li>
+            <li>Rotina semanal e mensal (sem depender da memória)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <b>Fase 3 — Crescimento</b>
+          <p class="small" style="margin-top:8px;">
+            Com a casa organizada, o foco vira <b>resultado</b>: margem, DRE, metas e indicadores para guiar decisões,
+            preço, equipe e expansão.
+          </p>
+          <ul class="ul">
+            <li>DRE e indicadores (margem, despesas, lucro)</li>
+            <li>Metas e orçamento</li>
+            <li>Preço, margem e ponto de equilíbrio</li>
+            <li>Reunião mensal estratégica (plano de ação)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANOS -->
+    <section class="section" id="planos">
+      <h2>Planos</h2>
+      <p>Você pode começar com consultoria (projeto) ou entrar no mensal para acompanhamento contínuo.</p>
+
+      <div class="grid cols-3">
+        <div class="card">
+          <b>Start (Projeto)</b>
+          <div class="price"><b>R$ 1.500</b><span class="small">a partir</span></div>
+          <div class="small">Ideal para organizar e criar base.</div>
+          <ul class="ul">
+            <li>Diagnóstico + plano de ação</li>
+            <li>Fluxo de caixa</li>
+            <li>Rotina e padrões do financeiro</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border:1px solid rgba(46,125,246,.5);">
+          <b>Mensal (Controladoria)</b>
+          <div class="price"><b>R$ 1.200</b><span class="small">/mês a partir</span></div>
+          <div class="small">Acompanhamento + números para decisão.</div>
+          <ul class="ul">
+            <li>Conciliação e relatórios</li>
+            <li>DRE e indicadores</li>
+            <li>Reunião mensal (online) + 1 visita/mês</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <b>Pro (Escala)</b>
+          <div class="price"><b>Personalizado</b></div>
+          <div class="small">Para empresas em crescimento ou com maior volume de operação.</div>
+          <ul class="ul">
+            <li>Rotinas + suporte ampliado (conforme demanda)</li>
+            <li>Dashboards e governança</li>
+            <li>Processos e acompanhamento mais frequente</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="section" id="contato">
+      <h2>Contato</h2>
+      <p>Me chama no WhatsApp e eu te digo o primeiro passo para colocar tudo no controle.</p>
+
+      <div class="card">
+        <div class="row">
+          <div>
+            <b>WhatsApp</b>
+            <div class="small">Atendimento direto com mensagem pronta.</div>
+          </div>
+          <div class="right row">
+            <a class="btn primary" id="btnWppTop" href="#">Chamar no WhatsApp</a>
+            <a class="btn" href="#inicio">Voltar ao topo</a>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="small">
+          Instagram:
+          <a href="https://www.instagram.com/recover_consultoriadig/" target="_blank" rel="noopener" style="text-decoration:underline;">
+            @recover_consultoriadig
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="row">
+        <div>© <span id="year"></span> Recover — Consultoria Financeira e Controladoria Estratégica.</div>
+        <div class="right">Organização + rotina + números para decisão.</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Floating WhatsApp -->
+  <a class="wpp" id="btnWppFloat" href="#" aria-label="Chamar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.52 3.48A11.9 11.9 0 0 0 12.04 0C5.44 0 .1 5.34.1 11.94c0 2.1.55 4.15 1.6 5.97L0 24l6.25-1.64a11.9 11.9 0 0 0 5.79 1.48h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.19-1.24-6.2-3.47-8.42ZM12.04 21.8c-1.86 0-3.68-.5-5.28-1.44l-.38-.23-3.7.97.99-3.61-.25-.37a9.8 9.8 0 0 1-1.55-5.27c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.12 1.03 6.98 2.89a9.8 9.8 0 0 1 2.89 6.98c0 5.44-4.43 9.87-9.88 9.87Zm5.73-7.36c-.31-.16-1.86-.92-2.15-1.03-.29-.1-.5-.16-.71.16-.21.31-.82 1.03-1.01 1.24-.18.21-.37.23-.68.08-.31-.16-1.32-.49-2.52-1.56-.93-.83-1.56-1.86-1.74-2.17-.18-.31-.02-.48.14-.64.14-.14.31-.37.47-.55.16-.18.21-.31.31-.52.1-.21.05-.39-.03-.55-.08-.16-.71-1.72-.98-2.36-.26-.62-.53-.54-.71-.54h-.6c-.21 0-.55.08-.84.39-.29.31-1.1 1.07-1.1 2.6s1.13 3.02 1.29 3.23c.16.21 2.23 3.41 5.4 4.78.75.32 1.33.51 1.79.66.75.24 1.43.21 1.97.13.6-.09 1.86-.76 2.12-1.49.26-.73.26-1.36.18-1.49-.08-.13-.29-.21-.6-.37Z"/>
+    </svg>
+    WhatsApp
+  </a>
+
+  <script>
+    const WHATSAPP_NUMBER = "5522998138681";
+    function wppLink(msg){
+      const text = encodeURIComponent(msg);
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    }
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const btnWppFloat = document.getElementById("btnWppFloat");
+    const btnWppTop = document.getElementById("btnWppTop");
+
+    const defaultMsg = "Oi! Vim pelo site da Recover. Quero organizar o financeiro da minha empresa. Pode me dizer qual é o primeiro passo?";
+    btnWppFloat.href = wppLink(defaultMsg);
+    btnWppTop.href = wppLink(defaultMsg);
+
+    const form = document.getElementById("leadForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const nome = data.get("nome");
+      const empresa = data.get("empresa");
+      const whats = data.get("whats");
+      const dor = data.get("dor");
+
+      const msg =
+        `Oi! Vim pelo site da Recover. Meu nome é ${nome}. Minha empresa é ${empresa}. ` +
+        `Meu WhatsApp é ${whats}. Minha maior dor agora é: ${dor}. ` +
+        `Pode me orientar no primeiro passo?`;
+
+      window.location.href = wppLink(msg);
+    });
+  </script>
+</body>
+</html>
